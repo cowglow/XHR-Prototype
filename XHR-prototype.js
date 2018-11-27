@@ -7,35 +7,30 @@ class XhrPrototype {
     }
 
     // TODO: Convert to async function
-    makeRequest(uri, callback) {
+    async makeRequest(uri, callback) {
         this.toggleLoader('on');
 
+        const that = this;
+
         const xhr = this.getXHR();
-
-        if ('withCredentials' in xhr) {
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4) {
-                    var response = JSON.parse(xhr.responseText);
-                    // var response = xhr.responseText;
-
-                    if (response.status === "ok") {
-                        // console.log("You just posted some valid geoJSON");
-                    } else if (response.status === "error") {
-                        // console.log("There was a problem with your geoJSON " + response.message);
-                    } else {
-                        // console.log("Response has been recieved using " + response.status);
-                        console.log(xhr.responseText);
-                        callback(xhr.responseText);
-                    }
-
+        xhr.open('GET', this.baseUrl + uri, true);
+        xhr.onload = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    callback(xhr.responseText);
+                    that.toggleLoader('off');
+                } else {
+                    console.error(xhr.statusText);
                 }
-            };
+            }
+        };
 
-            xhr.open('get', this.baseUrl + uri, true);
-            xhr.send();
-        }
+        xhr.onerror = function (e) {
+            console.error(xhr.statusText);
+        };
 
-        this.toggleLoader('off');
+        xhr.send(null);
+
     }
 
 
