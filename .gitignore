@@ -1,0 +1,4 @@
+# IntelliJ project files
+.idea
+/assets/bootstrap/
+assets/bootstrap/.DS_Store
