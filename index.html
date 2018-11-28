@@ -77,7 +77,8 @@
         <script src="XHR-prototype.js"></script>
         <script>
             // XHR Prototype Class Instance
-            var baseUrl = 'https://api.github.com/search/users';
+            var baseUrl = 'https://api.github.com/search/users?q=';
+            var defaultQuery = 'cowglow';
             var requestor = new XhrPrototype(baseUrl, 'body', 'Loading');
 
             // Event Listener
@@ -93,8 +94,8 @@
                     event.preventDefault();
 
                     // Method Execution
-                    var query = (inputElement.value) ? inputElement.value : 'cowglow';
-                    requestor.makeRequest('?q=' + query, function (data) {
+                    var query = (inputElement.value) ? inputElement.value : defaultQuery;
+                    requestor.makeRequest(query, function (data) {
                         // Attach Response to DOM
                         // var response = JSON.stringify(data);
                         outputElement.innerHTML = data;
