@@ -63,8 +63,7 @@ Execute the request:
 ```sh
 requestor.makeRequest(`request_method`, callback);
 ```
-Because you already bond the DOM Element which you want the animation to attach to while you wait for the response, you 
-just need write your callback function to handle the data that comes in from the request.
+Because you already bonded the DOM Element the class will know which element to attach the animation while you wait for the response. You just need to write your callback function to handle the data that comes in from the request. Totally up to you!
 
 ```sh
 someDomElement.innerHTML = {response_data};
