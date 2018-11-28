@@ -49,7 +49,7 @@ requestor = new XhrPrototype(`path_to_server`, `dom_element_target`, `loading_an
 ###
 ###
 
-Preferably, initialize on and event. In this case we use:
+Preferably, initialize on an event. In this case we use:
 ```sh
 window.addEventListener('load', function([event]){
     ...
