@@ -53,7 +53,7 @@ Preferably, initialize on and event. In this case we use:
 ```sh
 window.addEventListener('load', function([event]){
     ...
-})
+});
 ```
 
 ###
