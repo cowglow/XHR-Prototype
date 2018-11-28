@@ -1,18 +1,20 @@
 'use strict';
 
 class XhrPrototype {
-    constructor(baseUrl) {
+    constructor(baseUrl, targetElement, animationClass) {
         this.that = this;
         this.baseUrl = baseUrl;
+        this.targetElement = targetElement;
+        this.animationClass = animationClass;
     }
 
     // TODO: Convert to async function
     async makeRequest(uri, callback) {
         this.toggleLoader('on');
 
-        const that = this;
+        var that = this;
 
-        const xhr = this.getXHR();
+        var xhr = this.getXHR();
         xhr.open('GET', this.baseUrl + uri, true);
         xhr.onload = function() {
             if (xhr.readyState === 4) {
@@ -35,13 +37,13 @@ class XhrPrototype {
 
 
     toggleLoader(state) {
-        const toggleStates = ['off', 'on'];
-        const targetElement = document.querySelector('body');
+        var toggleStates = ['off', 'on'];
+        var targetElement = document.querySelector(this.targetElement);
 
         if (toggleStates.indexOf(state)) {
-            targetElement.classList.add('Loading');
+            targetElement.classList.add(this.animationClass);
         } else {
-            targetElement.classList.remove('Loading');
+            targetElement.classList.remove(this.animationClass);
         }
     }
 

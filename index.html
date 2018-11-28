@@ -71,7 +71,7 @@
         <script>
             // XHR Prototype Class Instance
             var baseUrl = 'https://api.github.com/search/users';
-            var requestor = new XhrPrototype(baseUrl);
+            var requestor = new XhrPrototype(baseUrl, 'body', 'Loading');
 
             // Event Listener
             window.addEventListener('load', function () {
