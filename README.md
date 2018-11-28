@@ -41,9 +41,7 @@ Don't worry, I got you.
 After importing the `XHR-prototype.js` file. Set some variables in a new `<script>` tag.
 
 ```sh
-baseUrl         = 'https://api.github.com/search/users?q=';
-defaultQuery    = 'cowglow';
-requestor       = new XhrPrototype(baseUrl, {DOM Element Target}, {Loading Animation CSS Class});
+requestor = new XhrPrototype(`path_to_server`, `dom_element_target`, `loading_animation_css`);
 ```
 
 > btw, `requestor` is an arbitrary variable name. You can come up with a better one. I believe in you! 
@@ -63,7 +61,7 @@ window.addEventListener('load', function([event]){
 
 Execute the request:
 ```sh
-requestor.makeRequest(`path_to_server`, callback);
+requestor.makeRequest(`request_method`, callback);
 ```
 Because you already bond the DOM Element which you want the animation to attach to while you wait for the response, you 
 just need write your callback function to handle the data that comes in from the request.
