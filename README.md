@@ -77,7 +77,7 @@ someDomElement.innerHTML = {response_data};
 I'm mercenary coder at [tollwerk GmbH](https://github.com/tollwerk)
 
 * [@cowglow](https://twitter.com/cowglow) - Say 'hi' on twitter!
-* [YouTube](htttp://youtube.com/c/cowglow) - I'm a filmmaker
+* [YouTube](https://youtube.com/c/cowglow) - I'm a filmmaker
 * [GitHub](https://github.com/cowglow) - but I know how to code
 
 
