@@ -17,7 +17,9 @@ XhrPrototype.prototype.makeRequest = async function(uri, callback) {
     var that = this;
 
     var xhr = this.getXHR();
+
     xhr.open('GET', this.baseUrl + uri, true);
+
     xhr.onload = function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
@@ -36,7 +38,8 @@ XhrPrototype.prototype.makeRequest = async function(uri, callback) {
     xhr.send(null);
 };
 
-XhrPrototype.prototype.toggleLoader(state) {
+
+XhrPrototype.prototype.toggleLoader = function(state) {
     var toggleStates = ['off', 'on'];
     var targetElement = document.querySelector(this.targetElement);
 
