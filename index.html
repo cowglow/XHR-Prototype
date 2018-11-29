@@ -51,9 +51,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 form-group">
-                        <label for="uri">JSON Request URI</label>
-                        <input type="text" id="uri" class="form-control form-control-lg"
+                        <form action="#">
+                            <label for="uri">JSON Request URI</label>
+                            <input type="text" id="uri" class="form-control form-control-lg"
                                placeholder="your GitHub username">
+                        </form>
                     </div>
                 </div>
                 <div class="row">
@@ -81,25 +83,34 @@
             var defaultQuery = 'cowglow';
             var requestor = new XhrPrototype(baseUrl, 'body', 'Loading');
 
+            function requestFunction(inputElement, outputElement) {
+                // Method Execution
+                var query = (inputElement.value) ? inputElement.value : defaultQuery;
+                requestor.makeRequest(query, function (data) {
+                    // Attach Response to DOM
+                    // var response = JSON.stringify(data);
+                    outputElement.innerHTML = data;
+                });
+            }
+
             // Event Listener
             window.addEventListener('load', function () {
                 // DOM Elements
                 var btnRequest = document.querySelector('.btn-primary');
                 var btnReset = document.querySelector('.btn-secondary');
+                var formElement = document.querySelector('form');
                 var inputElement = document.querySelector('#uri');
                 var outputElement = document.querySelector('code');
 
-                btnRequest.addEventListener('click', function (event) {
+                formElement.addEventListener('submit', function(event) {
                     // JavaScript Take Over!!!
                     event.preventDefault();
+                    requestFunction(inputElement, outputElement);
+                });
 
-                    // Method Execution
-                    var query = (inputElement.value) ? inputElement.value : defaultQuery;
-                    requestor.makeRequest(query, function (data) {
-                        // Attach Response to DOM
-                        // var response = JSON.stringify(data);
-                        outputElement.innerHTML = data;
-                    });
+                btnRequest.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    requestFunction(inputElement, outputElement);
                 });
 
                 btnReset.addEventListener('click', function (event) {
