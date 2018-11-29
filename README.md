@@ -2,38 +2,33 @@
 
 This is a prototype!
 
-`XHR-prototype.js ` is a JavaScript Class demonstrating an introductory approach of a XmlHttpRequest with asynchronous 
-behaviour.
-
-
-Made with pure vanilla JavaScript.
-It is made available for demo purposed only. You should [fork it](https://github.com/cowglow/XHR-Prototype) and use it 
-to build something cool.
+`XHR-prototype.js ` is a JavaScript Class demonstrating an introductory approach to making an XmlHttpRequest with asynchronous 
+behaviour. It was made with pure vanilla JavaScript and with the intentions of making it available for demo purposed only.
+You should [fork it](https://github.com/cowglow/XHR-Prototype) and use it to build something cool.
 
 
 ### About the class
-  - Constructor function is utilized as configuration
+  - Constructor function is utilized for configuration
   - Method: `makeRequest(server_path, callback)`
   - Method: `toggleLoader(state)`
   - Method: `getXHR()`
 
 ### Front-end setup
   - You'll need a CSS animation class
-  - This Demo contains an example using `svg`
-  - And a little JavaScript configuration
+  - This demo contains an example using `svg` 
+  - And a little JavaScript setup
 
 ### Server options
-Do you not use MAMP? or XAMP? But are you a cool hipster on a mac who has php native?
-Don't worry, I got you. 
+Do you not use MAMP? or XAMP? Are you a cool hipster on a Mac who has php already installed?
+Don't worry, I got you.
   - Open Terminal
-  - Navigate to git project
-  - try some of this PHP
+  - Navigate to the project's directory
+  - try some of this PHP magic
   
   ```sh
   php -S localhost:8888
   ```
- > btw, expected capability of being able to launch a localhost project
-
+ > btw, I'm expecting that you have the capability of being able to launch a localhost project.
 
 
 ### Demo details
@@ -46,24 +41,20 @@ requestor = new XhrPrototype(`path_to_server`, `dom_element_target`, `loading_an
 
 > btw, `requestor` is an arbitrary variable name. You can come up with a better one. I believe in you! 
 
-###
-###
 
-Preferably, initialize on an event. In this case we use:
+It's preferable that you initialize on an Event. In this case we use `load`:
 ```sh
 window.addEventListener('load', function([event]){
     ...
 });
 ```
 
-###
-###
 
 Execute the request:
 ```sh
 requestor.makeRequest(`request_method`, callback);
 ```
-Because you already bonded the DOM Element the class will know which element to attach the animation while you wait for the response. You just need to write your callback function to handle the data that comes in from the request. Totally up to you!
+Because you already bonded the DOM Element when you instantiated the javascript class; it already knows where to attach the animation while it waits for the request to finish. You just need to write your callback function to handle the data from the response. It's totally up to you. For example:
 
 ```sh
 someDomElement.innerHTML = {response_data};
@@ -71,7 +62,7 @@ someDomElement.innerHTML = {response_data};
 
 ### About me
 
-I'm mercenary coder at [tollwerk GmbH](https://github.com/tollwerk)
+I'm a mercenary coder at [tollwerk GmbH](https://github.com/tollwerk)
 
 * [@cowglow](https://twitter.com/cowglow) - Say 'hi' on twitter!
 * [YouTube](https://youtube.com/c/cowglow) - I'm a filmmaker
@@ -81,7 +72,8 @@ I'm mercenary coder at [tollwerk GmbH](https://github.com/tollwerk)
 ### Todos
 
  - Fork it
- - Write Code!
+ - Code it!
+ - Do it on your own!
 
 License
 ----
